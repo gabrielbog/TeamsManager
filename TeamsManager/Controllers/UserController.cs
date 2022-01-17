@@ -15,7 +15,7 @@ namespace TeamsManager.Controllers
     public class UserController : Controller
     {
         private UserDbContext userDbCtx = new UserDbContext();
-        private AesCryptoServiceProvider aes;
+        private AesCryptoServiceProvider aes = new AesCryptoServiceProvider();
 
         // GET: User
         public ActionResult Index()
