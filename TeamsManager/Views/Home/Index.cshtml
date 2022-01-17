@@ -1,4 +1,4 @@
-﻿@{ ViewBag.Title = "Home Page"; }
+@{ ViewBag.Title = "Home Page"; }
 
 <link rel="stylesheet" href="~/Content/style.css">
 
@@ -9,7 +9,7 @@
     <div class="right">
         <h1>Login</h1>
         <hr />
-        <form method="POST">
+        <form method="POST" action="../User/Index">
             <input type="text" name="username" placeholder="Username">
             <input type="text" name="password" placeholder="Password">
             <input type="submit" value="Login">

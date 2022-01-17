@@ -1,0 +1,45 @@
+
+@{ ViewBag.Title = "Index"; }
+
+<link rel="stylesheet" href="~/Content/style.css">
+
+<main class="user">
+    <div class="left">
+        <div class="menu">
+            <div class="item active">Home</div>
+            <div class="item">Notifications</div>
+            <div class="item">Manage Teams</div>
+            <div class="item bottom">@Html.ActionLink("Log Out", "../Home/Index")</div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="mconatiner">
+            <section class="tool-bar">
+                <div class="actions">Tool Bar</div>
+                <div class="actions profile">PROFILE</div>
+            </section>
+            <section class="tab-content">
+                Inbox
+                <hr />
+                <table class="table-tasks">
+                    <tr>
+                        <th>#</th>
+                        <th>Task Description</th>
+                        <th>Status</th>
+                        <th>Due Date</th>
+                        <th>Tine Remaining</th>
+                        <th>Note</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Plan for next year</td>
+                        <td>PENDING</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+    </div>
+</main>
