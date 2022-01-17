@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 using System.Diagnostics;
 using System.Text;
+using System.IO;
 using System.Security.Cryptography;
 using TeamsManager.Models;
 
@@ -14,6 +15,7 @@ namespace TeamsManager.Controllers
     public class UserController : Controller
     {
         private UserDbContext userDbCtx = new UserDbContext();
+        private AesCryptoServiceProvider aes;
 
         // GET: User
         public ActionResult Index()
@@ -37,34 +39,65 @@ namespace TeamsManager.Controllers
             //pentru Vasi
             //informatii despre Session, la sfarsit: https://www.c-sharpcorner.com/article/simple-login-application-using-Asp-Net-mvc/
 
+            //check if user already exists, if not show error
+            var res = userDbCtx.Users.SingleOrDefault(u => u.Username == user.Username);
+            if (res == null)
+            {
+                //error
+                ModelState.AddModelError("", "Invalid login information.");
+                Trace.WriteLine(DateTime.Now.ToString("MM\\/dd\\/yyyy h\\:mm:ss tt") + ": Username Not Found");
+
+                //final
+                return View(user);
+            }
+
+            //get keys from key database, if not show error
+            //both should have the same ID when inserted in databases
+            var keyRes = userDbCtx.Encryptions.SingleOrDefault(e => e.Id == res.Id);
+            if (res == null)
+            {
+                //error
+                ModelState.AddModelError("", "Invalid login information.");
+                Trace.WriteLine(DateTime.Now.ToString("MM\\/dd\\/yyyy h\\:mm:ss tt") + ": Keys Not Found");
+
+                //final
+                return View(user);
+            }
+
+            //decrypt password
+            byte[] encryptedBytes = Convert.FromBase64String(res.Parola);
+            byte[] clearBytes;
+
+            byte[] key = Convert.FromBase64String(keyRes.Key);
+            byte[] iv = Convert.FromBase64String(keyRes.IV);
+
+            aes.Key = key;
+            aes.IV = iv;
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                using (CryptoStream cs = new CryptoStream(ms, aes.CreateDecryptor(), CryptoStreamMode.Write))
+                {
+                    cs.Write(encryptedBytes, 0, encryptedBytes.Length);
+                    cs.Close();
+                }
+
+                clearBytes = ms.ToArray();
+            }
+
+            //if password matches the decrypted password, load in the encrypted one
+            if (user.Parola == Encoding.UTF8.GetString(clearBytes))
+                user.Parola = res.Parola;
+
             //check model state
             if (ModelState.IsValid)
             {
-                //hash encrypt password
-                using (SHA256 hash = SHA256.Create())
-                {
-                    byte[] bytes;
+                //cookies stuff for memorizing the user
+                Session["UserID"] = user.Id.ToString();
+                Session["UserName"] = user.Username.ToString();
 
-                    bytes = hash.ComputeHash(Encoding.UTF8.GetBytes(user.Parola));
-
-                    StringBuilder s = new StringBuilder();
-                    for (int i = 0; i < bytes.Length; i++)
-                    {
-                        s.Append(bytes[i].ToString("x2"));
-                    }
-
-                    user.Parola = s.ToString();
-                }
-
-                //search for password
-                var res = userDbCtx.Users.SingleOrDefault(u => u.Username == user.Username && u.Parola == user.Parola);
-                if(res != null)
-                {
-                    //cookies stuff for memorizing the user
-                    Session["UserID"] = res.Id.ToString();
-                    Session["UserName"] = res.Username.ToString();
-                    return RedirectToAction("Index");
-                }
+                //final
+                return RedirectToAction("Index");
             }
 
             //error
@@ -105,24 +138,36 @@ namespace TeamsManager.Controllers
                     return View(user);
                 }
 
-                //hash encrypt password
-                using (SHA256 hash = SHA256.Create())
+                //encrypt password on database with matching id
+                byte[] clearBytes = Encoding.UTF8.GetBytes(user.Parola);
+                byte[] encryptedBytes;
+
+                aes.KeySize = 128;
+
+                using (MemoryStream ms = new MemoryStream())
                 {
-                    byte[] bytes;
-
-                    bytes = hash.ComputeHash(Encoding.UTF8.GetBytes(user.Parola));
-
-                    StringBuilder s = new StringBuilder();
-                    for (int i = 0; i < bytes.Length; i++)
+                    using (CryptoStream cs = new CryptoStream(ms, aes.CreateEncryptor(), CryptoStreamMode.Write))
                     {
-                        s.Append(bytes[i].ToString("x2"));
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
                     }
 
-                    user.Parola = s.ToString();
+                    encryptedBytes = ms.ToArray();
                 }
 
-                //save in database
+                user.Parola = Convert.ToBase64String(encryptedBytes);
+
+                //save user in database
                 userDbCtx.Users.Add(user);
+
+                //save keys in database, they should save on the same id on both databases
+                //assuming the databases are empty
+                EncryptionModel encryptionModel = new EncryptionModel();
+                encryptionModel.Key = Convert.ToBase64String(aes.Key);
+                encryptionModel.IV = Convert.ToBase64String(aes.IV);
+                userDbCtx.Encryptions.Add(encryptionModel);
+
+                //save changes
                 userDbCtx.SaveChanges();
 
                 //cookies stuff for memorizing the user
