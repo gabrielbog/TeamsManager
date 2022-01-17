@@ -1,3 +1,52 @@
 ﻿@{ ViewBag.Title = "Home Page"; }
 
 <link rel="stylesheet" href="~/Content/style.css">
+
+<main class="home">
+    <div class="left">
+        <h1>Left area</h1>
+    </div>
+    <div class="right">
+        <h1>Login</h1>
+        <hr />
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username">
+            <input type="text" name="password" placeholder="Password">
+            <input type="submit" value="Login">
+        </form>
+        <button id="signup-btn">Sign Up</button>
+    </div>
+</main>
+
+<div id="signup-modal" class="modal">
+    <div class="modal-content">
+        <h1>Sign Up</h1>
+        <hr />
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username">
+            <input type="text" name="password" placeholder="Password">
+            <input type="text" name="email"    placeholder="Email">
+            <input type="submit" value="Sign Up">
+        </form>
+    </div>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("signup-modal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("signup-btn");
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
