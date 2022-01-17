@@ -17,11 +17,12 @@ namespace TeamsManager.Models
         public string Username { get; set; }
         [Required]
         public string Parola { get; set; }
-
+        [Required]
+        public string Email { get; set; }
     }
+
     public class UserDbContext : DbContext
     {
         public DbSet<UserModel> Users { get; set; }
     }
-    
 }
