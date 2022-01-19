@@ -1,4 +1,4 @@
-
+@model TeamsManager.Models.PlanModel
 @{ ViewBag.Title = "Index"; }
 
 <link rel="stylesheet" href="~/Content/style.css">
@@ -9,18 +9,36 @@
             <div class="item active">Home</div>
             <div class="item">Notifications</div>
             <div class="item">Manage Teams</div>
-            <div class="item bottom">@Html.ActionLink("Log Out", "../Home/Index")</div>
+            <div class="item bottom" onclick="location.href='@Url.Action("LogOut", "User")'">Log Out</div>
         </div>
     </div>
     <div class="right">
         <div class="mconatiner">
             <section class="tool-bar">
                 <div class="actions">Tool Bar</div>
-                <div class="actions profile">PROFILE</div>
+                <div class="actions profile">
+                    @if (Session["UserName"] != null)
+                    {
+                        <a href="Profile">@Session["UserName"].ToString()</a>
+                    }
+                </div>
             </section>
             <section class="tab-content">
-                Inbox
+                <fieldset>
+                    <legend>User DashBoard</legend>
+                    @if (Session["UserName"] != null && Session["UserID"] != null)
+                    {
+                        <text>
+                            Welcome ID: @Session["UserID"].ToString() Usrename: @Session["UserName"].ToString()
+                        </text>
+                    }
+                </fieldset>
+                <input type="button" value="Log Out" onclick="location.href='@Url.Action("LogOut", "User")'" />
                 <hr />
+                Inbox
+
+                <hr />
+
                 <table class="table-tasks">
                     <tr>
                         <th>#</th>
@@ -39,6 +57,15 @@
                         <td>-</td>
                     </tr>
                 </table>
+
+                <hr />
+
+                @Html.ActionLink("Create new task", "../Plan/Create")
+
+                <hr />
+
+                @Html.ActionLink("View Tasks", "../Plan/Index")
+
             </section>
         </div>
     </div>
