@@ -110,8 +110,12 @@ namespace TeamsManager.Controllers
         //
         // Register
         //
-
         public ActionResult Register()
+        {
+            return View();
+        }
+
+        public ActionResult Profile()
         {
             return View();
         }
@@ -188,14 +192,13 @@ namespace TeamsManager.Controllers
         //
         // LogOut
         //
-
         public ActionResult LogOut()
         {
             //delogare: https://www.youtube.com/watch?v=0y_HeholX4I
 
-            int userId = (int) Session["user_id"];
+            // int userId = (int) Session["UserID"];
             Session.Abandon();
-            return RedirectToAction("Index");
+            return RedirectToAction("LogIn");
         }
     }
 }

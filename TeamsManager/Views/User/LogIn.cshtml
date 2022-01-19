@@ -25,14 +25,6 @@
             <input type="submit" value="Login">
         }
 
-        @*
-        <form method="POST" action="../User/Index">
-            <input type="text" name="username" placeholder="Username">
-            <input type="text" name="password" placeholder="Password">
-            <input type="submit" value="Login">
-        </form>
-        *@
-
         <button id="signup-btn">Sign Up</button>
     </div>
 </main>
@@ -53,7 +45,7 @@
             @Html.TextBoxFor(model => model.Parola, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Parola)
 
-            <input type="submit" value="Login">
+            <input type="submit" value="Sign Up">
         }
     </div>
 </div>

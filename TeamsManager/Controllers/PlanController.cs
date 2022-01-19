@@ -39,7 +39,6 @@ namespace TeamsManager.Controllers
         //
         // Create
         //
-
         public ActionResult Create()
         {
             return View();
@@ -80,7 +79,6 @@ namespace TeamsManager.Controllers
         //
         // Delete
         //
-
         public ActionResult Delete(int? id)
         {
             if (!id.HasValue)
