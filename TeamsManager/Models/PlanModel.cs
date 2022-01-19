@@ -11,11 +11,8 @@ namespace TeamsManager.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
         public int IdUser { get; set; }
-        [Required]
         public string UserName { get; set; }
-        [Required]
         public string PlanName { get; set; }
         public string Description { get; set; }
         public DateTime Deadline { get; set; }

@@ -1,0 +1,19 @@
+@{ ViewBag.Title = "Profile"; }
+
+<h2>Profile</h2>
+
+<hr />
+
+<fieldset>
+    <legend>User DashBoard</legend>
+    @if (Session["UserName"] != null && Session["UserID"] != null)
+    {
+        <text>
+            Welcome ID: @Session["UserID"].ToString() Usrename: @Session["UserName"].ToString()
+        </text>
+    }
+</fieldset>
+
+<hr />
+
+<input type="button" value="Delete" onclick="location.href='@Url.Action("Delete", "User")'" />

@@ -18,6 +18,8 @@ namespace TeamsManager.Controllers
         private UserDbContext userDbCtx = new UserDbContext();
         private EncryptionDbContext encryptionDbContext = new EncryptionDbContext();
 
+        private PlanDbContext planDbCtx = new PlanDbContext();
+
         // GET: User
         public ActionResult Index()
         {
@@ -138,7 +140,8 @@ namespace TeamsManager.Controllers
                     ModelState.AddModelError("", "Username or email is already existant.");
                     Trace.WriteLine(DateTime.Now.ToString("MM\\/dd\\/yyyy h\\:mm:ss tt") + ": Duplicated username/email");
 
-                    return View(user);
+                    ModelState.AddModelError("", "Username or email is already existant.");
+                    return RedirectToAction("LogIn");
                 }
 
                 //encrypt password on database with matching id
@@ -186,7 +189,7 @@ namespace TeamsManager.Controllers
             ModelState.AddModelError("", "Invalid registration information");
             Trace.WriteLine(DateTime.Now.ToString("MM\\/dd\\/yyyy h\\:mm:ss tt") + ": Register Error");
 
-            return View(user);
+            return RedirectToAction("LogIn");
         }
 
         //

@@ -1,0 +1,43 @@
+@model IEnumerable<TeamsManager.Models.PlanModel>
+@{ ViewBag.Title = "Index"; }
+
+<link rel="stylesheet" href="~/Content/style.css">
+
+<h2>Index</h2>
+
+<table>
+    <tr>
+        <th>#</th>
+        <th>UId</th>
+        <th>Task Name</th>
+        <th>Task Description</th>
+        <th>Status</th>
+        <th>Due Date</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlanName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deadline)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>

@@ -176,10 +176,14 @@
     <Content Include="Content\style.css" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\LogIn.cshtml" />
+    <Content Include="Views\User\Profile.cshtml" />
+    <Content Include="Views\Plan\Create.cshtml" />
+    <Content Include="Views\Plan\Index.cshtml" />
+    <Content Include="Views\User\Test.cshtml" />
+    <Content Include="Views\Plan\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Plan\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
