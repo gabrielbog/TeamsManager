@@ -21,20 +21,8 @@ namespace TeamsManager.Models
         public string Email { get; set; }
     }
 
-    public class EncryptionModel
-    {
-        [Key]
-        public int Id { get; set; }
-        [Required]
-        public string Key { get; set; }
-        [Required]
-        public string IV { get; set; }
-    }
-
-
     public class UserDbContext : DbContext
     {
         public DbSet<UserModel> Users { get; set; }
-        public DbSet<EncryptionModel> Encryptions { get; set; }
     }
 }

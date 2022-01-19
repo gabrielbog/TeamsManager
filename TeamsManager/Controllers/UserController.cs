@@ -14,8 +14,9 @@ namespace TeamsManager.Controllers
 {
     public class UserController : Controller
     {
-        private UserDbContext userDbCtx = new UserDbContext();
         private AesCryptoServiceProvider aes = new AesCryptoServiceProvider();
+        private UserDbContext userDbCtx = new UserDbContext();
+        private EncryptionDbContext encryptionDbContext = new EncryptionDbContext();
 
         // GET: User
         public ActionResult Index()
@@ -53,8 +54,8 @@ namespace TeamsManager.Controllers
 
             //get keys from key database, if not show error
             //both should have the same ID when inserted in databases
-            var keyRes = userDbCtx.Encryptions.SingleOrDefault(e => e.Id == res.Id);
-            if (res == null)
+            var keyRes = encryptionDbContext.Encryptions.SingleOrDefault(e => e.Id == res.Id);
+            if (keyRes == null)
             {
                 //error
                 ModelState.AddModelError("", "Invalid login information.");
@@ -87,11 +88,9 @@ namespace TeamsManager.Controllers
 
             //if password matches the decrypted password, load in the encrypted one
             if (user.Parola == Encoding.UTF8.GetString(clearBytes))
+            {
                 user.Parola = res.Parola;
 
-            //check model state
-            if (ModelState.IsValid)
-            {
                 //cookies stuff for memorizing the user
                 Session["UserID"] = user.Id.ToString();
                 Session["UserName"] = user.Username.ToString();
@@ -159,16 +158,17 @@ namespace TeamsManager.Controllers
 
                 //save user in database
                 userDbCtx.Users.Add(user);
+                userDbCtx.SaveChanges();
 
                 //save keys in database, they should save on the same id on both databases
                 //assuming the databases are empty
                 EncryptionModel encryptionModel = new EncryptionModel();
                 encryptionModel.Key = Convert.ToBase64String(aes.Key);
                 encryptionModel.IV = Convert.ToBase64String(aes.IV);
-                userDbCtx.Encryptions.Add(encryptionModel);
+                encryptionDbContext.Encryptions.Add(encryptionModel);
+                encryptionDbContext.SaveChanges();
 
                 //save changes
-                userDbCtx.SaveChanges();
 
                 //cookies stuff for memorizing the user
                 Session["UserID"] = user.Id.ToString();
