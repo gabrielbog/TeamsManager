@@ -96,9 +96,15 @@ main.home .right button
     width: 80%;
 }
 
-/* User Page */
-main.user 
+.modal-content input
 {
+    margin-bottom: 20px !important;
+    /*background-color: red;*/
+    width: 300px;
+}
+
+/* User Page */
+main.user {
     background-color: orange;
     height: 100vh;
     display: grid;
@@ -179,10 +185,15 @@ main.user .right .mconatiner .tool-bar
     font-weight: bold;
     border-bottom: 2px solid black;
     display: grid;
-    grid-template-columns: auto 15%;
+    grid-template-columns: 50% auto;
 }
 
-main.user .right .mconatiner .tab-content
+ main.user .right .mconatiner .tool-bar .profile
+{
+     justify-self: end;
+}
+
+main.user .right .mconatiner .tab-content 
 {
     grid-area: tab-content;
     display: grid;

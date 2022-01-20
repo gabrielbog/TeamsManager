@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 
 namespace TeamsManager.Controllers
 {
@@ -10,20 +11,24 @@ namespace TeamsManager.Controllers
     {
         public ActionResult Index()
         {
+            //XDocument xDocument = XDocument.Load("data.xml");
+            //xDocument.Descendants("item").Select(p => new
+            //{
+            //    id = p.Attribute("id").Value
+            //}).ToList().ForEach(p => {
+            //    Console.WriteLine("Id:" + p.id);
+            //});
+            
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
         
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

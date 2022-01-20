@@ -1,5 +1,23 @@
 @{ ViewBag.Title = "Profile"; }
 
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Teams Manager", "Index", "User", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "User")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <h2>Profile</h2>
 
 <hr />
@@ -9,11 +27,11 @@
     @if (Session["UserName"] != null && Session["UserID"] != null)
     {
         <text>
-            Welcome ID: @Session["UserID"].ToString() Usrename: @Session["UserName"].ToString()
+            ID: @Session["UserID"].ToString() Usrename: @Session["UserName"].ToString() Email:
         </text>
     }
 </fieldset>
 
 <hr />
 
-<input type="button" value="Delete" onclick="location.href='@Url.Action("Delete", "User")'" />
+<div class="item bottom" onclick="location.href='@Url.Action("Delete", "User")'">Delete</div>

@@ -3,6 +3,25 @@
 
 <link rel="stylesheet" href="~/Content/style.css">
 
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Teams Manager", "Create", "Plan", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "User")</li>
+                <li>@Html.ActionLink("Back to create", "Create", "Plan")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <h2>Index</h2>
 
 <table>

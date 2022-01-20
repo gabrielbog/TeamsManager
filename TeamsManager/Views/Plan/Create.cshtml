@@ -1,6 +1,24 @@
 @model TeamsManager.Models.PlanModel
 @{ ViewBag.Title = "Create"; }
 
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Teams manager", "Index", "User", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "User")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <h2>Create</h2>
 
 
@@ -9,14 +27,19 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-
+    @Html.Label("Task name")
     @Html.TextBoxFor(model => model.PlanName, new { htmlAttributes = new { @class = "form-control" } })
     @Html.ValidationMessageFor(model => model.PlanName)
-
+    <br />
+    @Html.Label("Description")
     @Html.TextBoxFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
     @Html.ValidationMessageFor(model => model.Description)
+    <br />
+    @Html.Label("Status")
     @Html.TextBoxFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
     @Html.ValidationMessageFor(model => model.Status)
+    <br />
+    @Html.Label("Deadline")
     @Html.TextBoxFor(model => model.Deadline, new { htmlAttributes = new { @class = "form-control" } })
     @Html.ValidationMessageFor(model => model.Deadline)
 

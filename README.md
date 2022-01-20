@@ -1,4 +1,5 @@
 # TeamsManager
+![Relations](docs/relations.png)
 
 # Github Organization
 First, click on the **Fork button** in the top-right corner. 
