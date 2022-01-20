@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items>
+    <item id="1">
+        <name>Hello world!</name>
+        <description>This is just a regullar test!</description>
+    </item>
+    <item id="2">
+        <name>Hello world!</name>
+        <description>This is just a regullar test!</description>
+    </item>
+    <item id="3">
+        <name>Hello world!</name>
+        <description>This is just a regullar test!</description>
+    </item>
+</items>

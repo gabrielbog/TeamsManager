@@ -7,8 +7,8 @@
     <div class="left">
         <div class="menu">
             <div class="item active">Home</div>
-            <div class="item">Notifications</div>
-            <div class="item">Manage Teams</div>
+            <div class="item">@Html.ActionLink("Create new task", "../Plan/Create")</div>
+            <div class="item">@Html.ActionLink("View Tasks", "../Plan/Index")</div>
             <div class="item bottom" onclick="location.href='@Url.Action("LogOut", "User")'">Log Out</div>
         </div>
     </div>
@@ -25,47 +25,13 @@
             </section>
             <section class="tab-content">
                 <fieldset>
-                    <legend>User DashBoard</legend>
                     @if (Session["UserName"] != null && Session["UserID"] != null)
                     {
                         <text>
-                            Welcome ID: @Session["UserID"].ToString() Usrename: @Session["UserName"].ToString()
+                            <h3>Welcome <u>@Session["UserName"].ToString()</u></h3>
                         </text>
                     }
                 </fieldset>
-                <input type="button" value="Log Out" onclick="location.href='@Url.Action("LogOut", "User")'" />
-                <hr />
-                Inbox
-
-                <hr />
-
-                <table class="table-tasks">
-                    <tr>
-                        <th>#</th>
-                        <th>Task Description</th>
-                        <th>Status</th>
-                        <th>Due Date</th>
-                        <th>Tine Remaining</th>
-                        <th>Note</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Plan for next year</td>
-                        <td>PENDING</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                </table>
-
-                <hr />
-
-                @Html.ActionLink("Create new task", "../Plan/Create")
-
-                <hr />
-
-                @Html.ActionLink("View Tasks", "../Plan/Index")
-
             </section>
         </div>
     </div>

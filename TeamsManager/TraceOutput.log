@@ -336,3 +336,171 @@
     [Extent1].[Status] AS [Status]
     FROM [dbo].[PlanModels] AS [Extent1]
     WHERE [Extent1].[IdUser] = @p__linq__0
+01/20/2022 12:10:31 AM ui20: 1 res: SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[IdUser] AS [IdUser], 
+    [Extent1].[UserName] AS [UserName], 
+    [Extent1].[PlanName] AS [PlanName], 
+    [Extent1].[Description] AS [Description], 
+    [Extent1].[Deadline] AS [Deadline], 
+    [Extent1].[Status] AS [Status]
+    FROM [dbo].[PlanModels] AS [Extent1]
+    WHERE [Extent1].[IdUser] = @p__linq__0
+01/20/2022 12:19:15 AM: Current User Does Not Exist Anymore
+01/20/2022 12:19:36 AM: Current User Does Not Exist Anymore
+01/20/2022 12:19:58 AM: Username Not Found
+01/20/2022 12:20:31 AM: Current User Does Not Exist Anymore
+01/20/2022 12:23:11 AM: Current User Does Not Exist Anymore
+01/20/2022 12:23:22 AM: Current User Does Not Exist Anymore
+01/20/2022 12:27:12 AM ui20: 0 res: SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[IdUser] AS [IdUser], 
+    [Extent1].[UserName] AS [UserName], 
+    [Extent1].[PlanName] AS [PlanName], 
+    [Extent1].[Description] AS [Description], 
+    [Extent1].[Deadline] AS [Deadline], 
+    [Extent1].[Status] AS [Status]
+    FROM [dbo].[PlanModels] AS [Extent1]
+    WHERE [Extent1].[IdUser] = @p__linq__0
+01/20/2022 12:27:16 AM ui20: 0 res: SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[IdUser] AS [IdUser], 
+    [Extent1].[UserName] AS [UserName], 
+    [Extent1].[PlanName] AS [PlanName], 
+    [Extent1].[Description] AS [Description], 
+    [Extent1].[Deadline] AS [Deadline], 
+    [Extent1].[Status] AS [Status]
+    FROM [dbo].[PlanModels] AS [Extent1]
+    WHERE [Extent1].[IdUser] = @p__linq__0
+01/20/2022 12:27:18 AM: 404 Error
+01/20/2022 12:27:57 AM: Current User Does Not Exist Anymore
+01/20/2022 12:32:46 AM: Current User Does Not Exist Anymore
+01/20/2022 12:34:33 AM: Current User Does Not Exist Anymore
+01/20/2022 12:40:59 AM ui20: 0 res: SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[IdUser] AS [IdUser], 
+    [Extent1].[UserName] AS [UserName], 
+    [Extent1].[PlanName] AS [PlanName], 
+    [Extent1].[Description] AS [Description], 
+    [Extent1].[Deadline] AS [Deadline], 
+    [Extent1].[Status] AS [Status]
+    FROM [dbo].[PlanModels] AS [Extent1]
+    WHERE [Extent1].[IdUser] = @p__linq__0
+01/20/2022 2:34:11 AM: Username Not Found
+01/20/2022 2:37:26 AM: Username Not Found
+01/20/2022 2:38:50 AM: Username Not Found
+01/20/2022 2:39:07 AM: Username Not Found
+01/20/2022 2:40:14 AM: Username Not Found
+01/20/2022 2:40:29 AM: Username Not Found
+01/20/2022 3:02:54 AM: Current User Does Not Exist Anymore
+01/20/2022 7:16:43 AM ui20: 0 res: SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[IdUser] AS [IdUser], 
+    [Extent1].[UserName] AS [UserName], 
+    [Extent1].[PlanName] AS [PlanName], 
+    [Extent1].[Description] AS [Description], 
+    [Extent1].[Deadline] AS [Deadline], 
+    [Extent1].[Status] AS [Status]
+    FROM [dbo].[PlanModels] AS [Extent1]
+    WHERE [Extent1].[IdUser] = @p__linq__0
+01/20/2022 7:19:59 AM ui20: 0 res: SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[IdUser] AS [IdUser], 
+    [Extent1].[UserName] AS [UserName], 
+    [Extent1].[PlanName] AS [PlanName], 
+    [Extent1].[Description] AS [Description], 
+    [Extent1].[Deadline] AS [Deadline], 
+    [Extent1].[Status] AS [Status]
+    FROM [dbo].[PlanModels] AS [Extent1]
+    WHERE [Extent1].[IdUser] = @p__linq__0
+01/20/2022 7:21:11 AM ui20: 0 res: SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[IdUser] AS [IdUser], 
+    [Extent1].[UserName] AS [UserName], 
+    [Extent1].[PlanName] AS [PlanName], 
+    [Extent1].[Description] AS [Description], 
+    [Extent1].[Deadline] AS [Deadline], 
+    [Extent1].[Status] AS [Status]
+    FROM [dbo].[PlanModels] AS [Extent1]
+    WHERE [Extent1].[IdUser] = @p__linq__0
+01/20/2022 7:21:20 AM ui20: 0 res: SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[IdUser] AS [IdUser], 
+    [Extent1].[UserName] AS [UserName], 
+    [Extent1].[PlanName] AS [PlanName], 
+    [Extent1].[Description] AS [Description], 
+    [Extent1].[Deadline] AS [Deadline], 
+    [Extent1].[Status] AS [Status]
+    FROM [dbo].[PlanModels] AS [Extent1]
+    WHERE [Extent1].[IdUser] = @p__linq__0
+01/20/2022 7:24:58 AM ui20: 0 res: SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[IdUser] AS [IdUser], 
+    [Extent1].[UserName] AS [UserName], 
+    [Extent1].[PlanName] AS [PlanName], 
+    [Extent1].[Description] AS [Description], 
+    [Extent1].[Deadline] AS [Deadline], 
+    [Extent1].[Status] AS [Status]
+    FROM [dbo].[PlanModels] AS [Extent1]
+    WHERE [Extent1].[IdUser] = @p__linq__0
+01/20/2022 7:25:10 AM ui20: 0 res: SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[IdUser] AS [IdUser], 
+    [Extent1].[UserName] AS [UserName], 
+    [Extent1].[PlanName] AS [PlanName], 
+    [Extent1].[Description] AS [Description], 
+    [Extent1].[Deadline] AS [Deadline], 
+    [Extent1].[Status] AS [Status]
+    FROM [dbo].[PlanModels] AS [Extent1]
+    WHERE [Extent1].[IdUser] = @p__linq__0
+01/20/2022 7:25:21 AM ui20: 0 res: SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[IdUser] AS [IdUser], 
+    [Extent1].[UserName] AS [UserName], 
+    [Extent1].[PlanName] AS [PlanName], 
+    [Extent1].[Description] AS [Description], 
+    [Extent1].[Deadline] AS [Deadline], 
+    [Extent1].[Status] AS [Status]
+    FROM [dbo].[PlanModels] AS [Extent1]
+    WHERE [Extent1].[IdUser] = @p__linq__0
+01/20/2022 7:29:36 AM ui20: 0 res: SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[IdUser] AS [IdUser], 
+    [Extent1].[UserName] AS [UserName], 
+    [Extent1].[PlanName] AS [PlanName], 
+    [Extent1].[Description] AS [Description], 
+    [Extent1].[Deadline] AS [Deadline], 
+    [Extent1].[Status] AS [Status]
+    FROM [dbo].[PlanModels] AS [Extent1]
+    WHERE [Extent1].[IdUser] = @p__linq__0
+01/20/2022 7:30:32 AM: User not logged in
+01/20/2022 7:31:06 AM ui20: 0 res: SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[IdUser] AS [IdUser], 
+    [Extent1].[UserName] AS [UserName], 
+    [Extent1].[PlanName] AS [PlanName], 
+    [Extent1].[Description] AS [Description], 
+    [Extent1].[Deadline] AS [Deadline], 
+    [Extent1].[Status] AS [Status]
+    FROM [dbo].[PlanModels] AS [Extent1]
+    WHERE [Extent1].[IdUser] = @p__linq__0
+01/20/2022 7:31:09 AM ui20: 0 res: SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[IdUser] AS [IdUser], 
+    [Extent1].[UserName] AS [UserName], 
+    [Extent1].[PlanName] AS [PlanName], 
+    [Extent1].[Description] AS [Description], 
+    [Extent1].[Deadline] AS [Deadline], 
+    [Extent1].[Status] AS [Status]
+    FROM [dbo].[PlanModels] AS [Extent1]
+    WHERE [Extent1].[IdUser] = @p__linq__0
+01/20/2022 7:36:14 AM ui20: 0 res: SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[IdUser] AS [IdUser], 
+    [Extent1].[UserName] AS [UserName], 
+    [Extent1].[PlanName] AS [PlanName], 
+    [Extent1].[Description] AS [Description], 
+    [Extent1].[Deadline] AS [Deadline], 
+    [Extent1].[Status] AS [Status]
+    FROM [dbo].[PlanModels] AS [Extent1]
+    WHERE [Extent1].[IdUser] = @p__linq__0

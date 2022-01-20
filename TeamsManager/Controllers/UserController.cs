@@ -203,5 +203,32 @@ namespace TeamsManager.Controllers
             Session.Abandon();
             return RedirectToAction("LogIn");
         }
+
+        public ActionResult Delete()
+        {
+            //delogare: https://www.youtube.com/watch?v=0y_HeholX4I
+
+            int userId = int.Parse(Session["UserID"].ToString());
+
+            var res = userDbCtx.Users.SingleOrDefault(e => e.Id == userId);
+            var keyRes = encryptionDbContext.Encryptions.SingleOrDefault(e => e.Id == userId);
+
+            if (res == null)
+            {
+                ModelState.AddModelError("", "The current user does not exist in the database anymore");
+                Trace.WriteLine(DateTime.Now.ToString("MM\\/dd\\/yyyy h\\:mm:ss tt") + ": Current User Does Not Exist Anymore");
+
+                return RedirectToAction("LogIn");
+            }
+
+            userDbCtx.Users.Remove(res);
+            userDbCtx.SaveChanges();
+
+            encryptionDbContext.Encryptions.Remove(keyRes);
+            encryptionDbContext.SaveChanges();
+
+            Session.Abandon();
+            return RedirectToAction("LogIn");
+        }
     }
 }
